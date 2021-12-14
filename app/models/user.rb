@@ -13,6 +13,14 @@ class User < ApplicationRecord
   ROLES = ["admin", "regular"]
   TEAM_ROLES = ["commander", "astronaut"]
 
+  def regular?
+    self.role == "regular"
+  end
+
+  def admin?
+    self.role == "admin"
+  end
+
   def astronaut?
     self.role == "astronaut"
   end
