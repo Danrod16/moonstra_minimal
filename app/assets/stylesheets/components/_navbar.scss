@@ -15,6 +15,13 @@
 
 .side-bar {
   background-color: $third-color;
-  height: 100vh;
+  height: 95vh;
   width: 250px;
+  padding: 50px;
+}
+
+.side-bar-header {
+  p {
+    color: white;
+  }
 }
