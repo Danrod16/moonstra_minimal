@@ -12,6 +12,7 @@ puts "Cleaning DB..."
 User.destroy_all
 Team.destroy_all
 Project.destroy_all
+ProjectMember.destroy_all
 puts "DB CLEANED!"
 puts "Creating admin profile and team..."
 admin_team = Team.create!(name: 'Moonstra', description: 'Awesome company of awesome people')
@@ -24,7 +25,7 @@ puts 'Creating faker seeds...'
   team_project = TeamsProject.create!(team: team, project: project)
   rand(2..5).times do
    user = User.create!(email: Faker::Internet.email, first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, username: Faker::Internet.username, role: 'regular', password: 'password', team: team)
-   project_members = ProjectMember.create!(project: project, user: user)
+   project_members = ProjectMember.create!(teams_project: team_project, user: user)
   end
 end
 puts 'DB CREATED!'
