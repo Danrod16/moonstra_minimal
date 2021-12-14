@@ -13,17 +13,16 @@
   </head>
 
   <body>
-    <% if controller_name == "dashboards" %>
-    <%= render 'shared/sidebar' %>
-    <% else %>
-    <%= render 'shared/navbar' %>
-    <% end %>
     <%= render 'shared/flashes' %>
-    <% if controller_name == "dashboard" %>
+    <% if controller_name == "dashboards" %>
     <div class="dashboard-wrapper">
-      <%= yield %>
+      <%= render 'shared/sidebar' %>
+      <div class="dashboard-body">
+        <%= yield %>
+      </div>
     </div>
     <% else %>
+      <%= render 'shared/navbar' %>
       <%= yield %>
     <% end %>
   </body>
