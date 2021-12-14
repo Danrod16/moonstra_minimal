@@ -4,6 +4,6 @@ Rails.application.routes.draw do
         sessions: 'users/sessions',
         registrations: 'users/registrations'
       }
-  resources :teams, only: [:new, :create]
+  resources :teams, only: [:new, :create, :index, :show]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

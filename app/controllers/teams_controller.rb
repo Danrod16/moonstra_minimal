@@ -1,5 +1,14 @@
 class TeamsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:new, :create ]
+  skip_before_action :authenticate_user!
+
+  def index
+    @teams = policy_scope(Team)
+  end
+
+  def show
+    @team = Team.find(params[:id])
+    authorize @team
+  end
 
   def new
     @team = Team.new

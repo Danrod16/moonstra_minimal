@@ -12,4 +12,8 @@ class TeamPolicy < ApplicationPolicy
   def create?
     new?
   end
+
+  def show?
+    true
+  end
 end
