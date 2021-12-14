@@ -1,8 +1,22 @@
-<% @teams.each do |team| %>
-<ul>
-  <li>
-  <%= team.name %>
-  <%= link_to "see team", team_path(team) %>
-  </li>
-</ul>
-<% end %>
+<div class="my-container">
+  <div class="teams-header">
+
+  </div>
+  <div class="cards">
+    <% @teams.each do |team| %>
+    <%= link_to team_path(team) do %>
+      <div class="small-card">
+        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+        <div class="small-card-infos">
+          <div>
+            <h2><%= team.name %></h2>
+            <p>Short description here!</p>
+          </div>
+          <h2 class="small-card-pricing">£99.99</h2>
+          <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="small-card-user avatar-bordered" />
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+  </div>
+</div>

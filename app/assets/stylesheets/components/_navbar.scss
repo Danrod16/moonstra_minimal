@@ -8,5 +8,13 @@
 }
 
 .navbar-lewagon .navbar-brand img {
-  width: 40px;
+  width: 70px;
+  height: 70px;
+  border-radius: 50px;
+}
+
+.side-bar {
+  background-color: $third-color;
+  height: 100vh;
+  width: 250px;
 }
