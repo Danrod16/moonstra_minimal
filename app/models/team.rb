@@ -1,6 +1,7 @@
 class Team < ApplicationRecord
-  validates :name ,presence: true, uniqueness: true
+  validates :name, presence: true, uniqueness: true
   has_many :projects, through: :teams_projects
+  has_many :users, dependent: :nullify
   def members
     self.users
   end

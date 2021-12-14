@@ -1,0 +1,10 @@
+<div class="my-container">
+  <div class="big-card">
+    <%= simple_form_for @team do |f| %>
+      <%= f.input :name, class: "form-field" %>
+      <%= f.input :description, class: "form-field" %>
+      <%= f.input :members, class: "bg-black" %>
+      <%= f.button :submit, class: "primary-button" %>
+    <% end %>
+  </div>
+</div>
