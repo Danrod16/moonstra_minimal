@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root :to => 'passthrough#index'
   get 'home', to:"pages#home"
+  get "styleguide", to: "pages#stylguide"
   devise_for :users, controllers: {
         sessions: 'users/sessions',
         registrations: 'users/registrations'
