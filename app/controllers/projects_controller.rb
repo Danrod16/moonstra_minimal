@@ -1,9 +1,7 @@
 class ProjectsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
   def index
-    @projects = policy_scope(Project)
-
-    @public_projects = Project.where(private: false)
+    @public_projects = policy_scope(Project)
   end
 
   def new
