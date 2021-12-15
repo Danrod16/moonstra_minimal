@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_14_110234) do
+ActiveRecord::Schema.define(version: 2021_12_15_083435) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +31,7 @@ ActiveRecord::Schema.define(version: 2021_12_14_110234) do
     t.integer "finders_fee", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "private"
   end
 
   create_table "teams", force: :cascade do |t|
@@ -40,6 +42,7 @@ ActiveRecord::Schema.define(version: 2021_12_14_110234) do
     t.string "banner"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "diamonds"
   end
 
   create_table "teams_projects", force: :cascade do |t|
