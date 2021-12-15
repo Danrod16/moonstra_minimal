@@ -4,7 +4,14 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.hidden_field :team_id, :value => params[:team].to_i %>
+    <% if !params[:team].nil? %>
+      <%= f.hidden_field :team_id, :value => params[:team].to_i %>
+    <% else %>
+      <%= f.association :team,
+              required: true,
+              autofocus: true,
+              input_html: { autocomplete: "first_name" }%>
+    <% end %>
     <%= f.input :first_name,
                 required: true,
                 autofocus: true,
