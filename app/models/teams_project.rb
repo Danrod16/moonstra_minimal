@@ -1,7 +1,8 @@
 class TeamsProject < ApplicationRecord
   belongs_to :team
   belongs_to :project
-  has_many :users, through: :project_members
+  has_many :project_members, dependent: :destroy
+  has_many :users, through: :project_members, dependent: :destroy
   STATUSES = ["pending", "accepted", "declined"]
 
   def accepted?
