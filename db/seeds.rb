@@ -21,7 +21,7 @@ puts "ADMINS CREATED!"
 puts 'Creating faker seeds...'
 20.times do
   team = Team.create!(name: Faker::Company.name, description: Faker::Company.catch_phrase)
-  project = Project.create!(name: Faker::Space.galaxy, description: Faker::Lorem.paragraph, user: admin)
+  project = Project.create!(name: Faker::Space.galaxy, description: Faker::Lorem.paragraph, user: admin, private: false)
   team_project = TeamsProject.create!(team: team, project: project)
   rand(3..5).times do
     user = User.create!(email: Faker::Internet.email, first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, username: Faker::Internet.username, role: 'regular', password: 'password', team: team)
