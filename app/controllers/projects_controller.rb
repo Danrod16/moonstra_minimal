@@ -1,4 +1,8 @@
 class ProjectsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index]
+  def index
+    @projects = policy_scope(Project)
+  end
 
   def new
     @project = Project.new
@@ -13,16 +17,14 @@ class ProjectsController < ApplicationController
     else
       flash[:alert] = "We couldn't create your project, try again later"
     end
+    authorize @project
   end
 
-  def index
-    @projects = Project.all
-  end
 
 
   private
 
-  def teams_params
+  def project_params
     params.require(:project).permit(:name, :description)
   end
 end
