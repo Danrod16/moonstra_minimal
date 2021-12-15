@@ -1,3 +1,4 @@
+
 .cards {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -8,6 +9,17 @@
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.big-card {
+  margin: 0px 10px;
+  padding: 25px;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+.center-text {
+  text-align: center;
 }
 
 .small-card > img {
