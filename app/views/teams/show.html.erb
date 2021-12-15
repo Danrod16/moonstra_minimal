@@ -3,3 +3,5 @@
 <% @team.users.each do |member| %>
   <%= member.first_name %>
 <% end %>
+
+<%= link_to "Create project", new_project_path %>
