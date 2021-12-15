@@ -14,15 +14,17 @@ class ProjectsController < ApplicationController
   def create
     @project = Project.new(project_params)
     @project.user = current_user
-    if @project.save!
-      redirect_to projects_path(@project)
+    @team = current_user.team
+    if @project.save! && @project.private
+      TeamsProject.create(team: @team, project: @project)
+      redirect_to team_overview_path(@team)
+    elsif @project.save!
+      redirect_to projects_path
     else
       flash[:alert] = "We couldn't create your project, try again later"
     end
     authorize @project
   end
-
-
 
   private
 
