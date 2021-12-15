@@ -8,6 +8,8 @@ class PassthroughController < ApplicationController
       if @current_user.regular?
         path = team_overview_path(@current_user.team)
         # Add "else "logic for admin once rails admin is setup
+      else
+        path = team_overview_path(@current_user.team)
       end
     else
       path = home_path

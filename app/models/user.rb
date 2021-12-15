@@ -8,6 +8,7 @@ class User < ApplicationRecord
   validates :last_name ,presence: true
   validates :role ,presence: true
   validates :team_role ,presence: true
+  has_many :projects, dependent: :destroy
   has_many :project_members, dependent: :destroy
   has_many :teams_projects, through: :project_members, dependent: :destroy
   belongs_to :team

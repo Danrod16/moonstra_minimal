@@ -19,13 +19,13 @@ admin_team = Team.create!(name: 'Moonstra', description: 'Awesome company of awe
 admin = User.create!(email: 'admin@gmail.com', first_name: 'Dani', last_name: 'Rodriguez', username: 'Danrod16', role: 'admin', password: 'password', team: admin_team)
 puts "ADMINS CREATED!"
 puts 'Creating faker seeds...'
-50.times do
+20.times do
   team = Team.create!(name: Faker::Company.name, description: Faker::Company.catch_phrase)
-  project = Project.create!(name: Faker::Space.galaxy, description: Faker::Lorem.paragraph)
+  project = Project.create!(name: Faker::Space.galaxy, description: Faker::Lorem.paragraph, user: admin, private: false)
   team_project = TeamsProject.create!(team: team, project: project)
-  rand(2..5).times do
-   user = User.create!(email: Faker::Internet.email, first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, username: Faker::Internet.username, role: 'regular', password: 'password', team: team)
-   project_members = ProjectMember.create!(teams_project: team_project, user: user)
+  rand(3..5).times do
+    user = User.create!(email: Faker::Internet.email, first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, username: Faker::Internet.username, role: 'regular', password: 'password', team: team)
+    project_members = ProjectMember.create!(teams_project: team_project, user: user)
   end
 end
 puts 'DB CREATED!'

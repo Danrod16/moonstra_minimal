@@ -1,0 +1,16 @@
+<h1>Create your project</h1>
+
+<div class="my-container">
+  <div class="big-card">
+    <%= simple_form_for @project do |f| %>
+      <%= f.input :name, class: "form-field" %>
+      <%= f.input :description, class: "form-field" %>
+      <%= f.input :finders_fee, class: "form-field" %>
+      <%= f.label :private do %>
+        <%= f.check_box :private %>
+        private
+      <% end %>
+      <%= f.button :submit, class: "primary-button" %>
+    <% end %>
+  </div>
+</div>
