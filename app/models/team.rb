@@ -5,6 +5,10 @@ class Team < ApplicationRecord
   has_many :users, dependent: :nullify
   after_create :welcome_diamonds
 
+  def members
+    self.users
+  end
+
   private
 
   def welcome_diamonds

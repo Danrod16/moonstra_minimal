@@ -1,7 +1,7 @@
 class ProjectsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
   def index
-    @public_projects = policy_scope(Project)
+    @public_projects = policy_scope(Project).order("created_at DESC")
   end
 
   def new

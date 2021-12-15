@@ -6,9 +6,7 @@
           <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
           <div class="small-card-infos">
             <div>
-              <%= link_to project_path(project) do %>
-                <h2><%= project.name %></h2>
-              <% end %>
+              <h2><%= project.name %></h2>
               <p><%= project.description %></p>
               <p>Owner: <%= project.user.first_name %></p>
               <p> Finders fee: <%= project.finders_fee %></p>
