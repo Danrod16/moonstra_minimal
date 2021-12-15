@@ -3,5 +3,6 @@ class DashboardsController < ApplicationController
 
   def overview
     @team = Team.find(params[:team_id])
+    @private_projects = @team.projects
   end
 end

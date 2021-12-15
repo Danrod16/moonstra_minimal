@@ -8,10 +8,6 @@ class Team < ApplicationRecord
     self.users
   end
 
-  def projects
-    self.projects
-  end
-
   private
 
   def welcome_diamonds
