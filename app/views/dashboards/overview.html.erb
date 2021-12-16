@@ -4,8 +4,8 @@
   </div>
 </div>
 
-  <h2>Team projects</h2>
-  <div>
+  <h2>Current team projects</h2>
+  <div class="small-card">
     <ul style="list-style-type: none">
       <% @private_projects.limit(5).each do |private_project| %>
         <li> <%= private_project.name %> </li>
