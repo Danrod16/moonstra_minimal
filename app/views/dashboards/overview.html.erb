@@ -6,8 +6,8 @@
 
   <h2>Team projects</h2>
   <div>
-    <ul>
-      <% @private_projects.each do |private_project| %>
+    <ul style="list-style-type: none">
+      <% @private_projects.limit(3).each do |private_project| %>
         <li> <%= private_project.name %> <%= private_project.description %></li>
       <% end %>
     </ul>
