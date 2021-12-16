@@ -8,7 +8,7 @@
   <div>
     <ul style="list-style-type: none">
       <% @private_projects.limit(5).each do |private_project| %>
-        <li> <%= private_project.name %> <%= private_project.description %></li>
+        <li> <%= private_project.name %> </li>
       <% end %>
     </ul>
   </div>
