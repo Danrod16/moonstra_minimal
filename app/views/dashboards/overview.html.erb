@@ -5,10 +5,11 @@
 </div>
 
   <h2>Team projects</h2>
-  <ul>
-    <% @private_projects.each do |private_project| %>
-      <li> <%= private_project.name %> </li>
-      <li> <%= private_project.description %> </li>
-    <% end %>
-  </ul>
+  <div>
+    <ul>
+      <% @private_projects.each do |private_project| %>
+        <li> <%= private_project.name %> <%= private_project.description %></li>
+      <% end %>
+    </ul>
+  </div>
 </div>
