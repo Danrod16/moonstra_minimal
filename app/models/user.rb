@@ -11,7 +11,7 @@ class User < ApplicationRecord
   has_many :projects, dependent: :destroy
   has_many :project_members, dependent: :destroy
   has_many :teams_projects, through: :project_members, dependent: :destroy
-  belongs_to :team
+  belongs_to :team, optional: true
 
   ROLES = ["admin", "regular"]
   TEAM_ROLES = ["commander", "astronaut"]
