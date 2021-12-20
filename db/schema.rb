@@ -10,17 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 2021_12_20_111359) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+
   create_table "categories", force: :cascade do |t|
     t.string "name"
     t.string "color"
+
+  create_table "clients", force: :cascade do |t|
+    t.string "company_name"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "address"
+    t.string "cif"
+    t.string "email"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
+
 
   create_table "project_categories", force: :cascade do |t|
     t.bigint "category_id"
@@ -29,6 +41,14 @@ ActiveRecord::Schema.define(version: 2021_12_20_111359) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["category_id"], name: "index_project_categories_on_category_id"
     t.index ["project_id"], name: "index_project_categories_on_project_id"
+
+  create_table "deliverables", force: :cascade do |t|
+    t.string "title"
+    t.integer "price", default: 0
+    t.integer "time_alocation"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+
   end
 
   create_table "project_members", force: :cascade do |t|
@@ -49,6 +69,29 @@ ActiveRecord::Schema.define(version: 2021_12_20_111359) do
     t.boolean "private"
     t.bigint "user_id", null: false
     t.index ["user_id"], name: "index_projects_on_user_id"
+  end
+
+  create_table "proposal_deliverables", force: :cascade do |t|
+    t.bigint "deliverable_id", null: false
+    t.bigint "proposal_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["deliverable_id"], name: "index_proposal_deliverables_on_deliverable_id"
+    t.index ["proposal_id"], name: "index_proposal_deliverables_on_proposal_id"
+  end
+
+  create_table "proposals", force: :cascade do |t|
+    t.string "title"
+    t.text "overview"
+    t.text "goals"
+    t.integer "total_price", default: 0
+    t.date "expiry_date"
+    t.bigint "client_id", null: false
+    t.bigint "teams_project_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["client_id"], name: "index_proposals_on_client_id"
+    t.index ["teams_project_id"], name: "index_proposals_on_teams_project_id"
   end
 
   create_table "teams", force: :cascade do |t|
@@ -95,6 +138,10 @@ ActiveRecord::Schema.define(version: 2021_12_20_111359) do
   add_foreign_key "project_members", "teams_projects"
   add_foreign_key "project_members", "users"
   add_foreign_key "projects", "users"
+  add_foreign_key "proposal_deliverables", "deliverables"
+  add_foreign_key "proposal_deliverables", "proposals"
+  add_foreign_key "proposals", "clients"
+  add_foreign_key "proposals", "teams_projects"
   add_foreign_key "teams_projects", "projects"
   add_foreign_key "teams_projects", "teams"
   add_foreign_key "users", "teams"
