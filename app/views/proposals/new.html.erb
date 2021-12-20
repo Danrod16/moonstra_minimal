@@ -1,0 +1,19 @@
+<div class="my-container">
+  <div class="big-card">
+    <%= simple_form_for [@team,@proposal] do |f| %>
+      <%= f.input :title, class: "form-field" %>
+      <%= f.input :overview, class: "form-field" %>
+      <%= f.input :goals, class: "bg-black" %>
+      <%= f.input :total_price, class: "bg-black" %>
+      <%= f.input :expiry_date, class: "bg-black" %>
+      <%= f.association :teams_project, collection: @teams_projects, class: "bg-black" %>
+      <%= f.simple_fields_for :client do |client| %>
+        <%= render 'client_fields', :f => client %>
+      <% end %>
+      <div class='links'>
+        <%= link_to_add_association 'add client', f, :client %>
+      </div>
+      <%= f.button :submit, class: "primary-button" %>
+    <% end %>
+  </div>
+</div>
