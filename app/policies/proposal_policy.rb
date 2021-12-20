@@ -8,4 +8,13 @@ class ProposalPolicy < ApplicationPolicy
   def new?
     true
   end
+
+  def create?
+    new?
+  end
+
+
+  def show?
+    true
+  end
 end

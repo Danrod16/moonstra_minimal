@@ -13,6 +13,12 @@
       <div class='links'>
         <%= link_to_add_association 'add client', f, :client %>
       </div>
+      <%= f.simple_fields_for :proposal_deliverables do |deliverable| %>
+        <%= render 'proposal_deliverable_fields', :f => deliverable %>
+      <% end %>
+      <div class='links'>
+        <%= link_to_add_association 'add deliverable', f, :proposal_deliverables %>
+      </div>
       <%= f.button :submit, class: "primary-button" %>
     <% end %>
   </div>

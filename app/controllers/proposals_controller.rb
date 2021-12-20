@@ -8,13 +8,18 @@ class ProposalsController < ApplicationController
 
   def create
     @proposal = Proposal.new(proposal_params)
-    @proposal.teams_project = TeamsProject.find_by(team: @team, teams_project_id: params[:proposal][:teams_projects_id])
+    @proposal.teams_project = TeamsProject.find_by(team: @team, project_id: params[:proposal][:teams_project_id])
     if @proposal.save!
       redirect_to team_proposal_path(@team,@proposal)
     else
       flash[:alert] = "Error saving: try again"
       redirect_to :new
     end
+    authorize @proposal
+  end
+
+  def show
+    @proposal = Proposal.find(params[:id])
     authorize @proposal
   end
 
@@ -25,6 +30,6 @@ class ProposalsController < ApplicationController
   end
 
   def proposal_params
-    params.require(:proposal).permit(:title, :overview, :goals, :total_price, :expiry_date, client_attributes: [:id, :company_name, :first_name, :last_name, :address, :cif, :email, :_destroy])
+    params.require(:proposal).permit(:title, :overview, :goals, :total_price, :expiry_date, client_attributes: [:id, :company_name, :first_name, :last_name, :address, :cif, :email, :_destroy], deliverable_attributes: [:title, :price])
   end
 end
