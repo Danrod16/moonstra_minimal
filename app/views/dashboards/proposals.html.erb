@@ -1,0 +1,16 @@
+<%= link_to "new proposal", new_team_proposal_path(@team) %>
+  <% @teams_projects.each do |teams_project| %>
+    <div class="my-container">
+      <div class="big-card">
+        <%= teams_project.project.name %>
+        <ul>
+          <% teams_project.proposals .each do |proposal| %>
+            <li>
+              #<%= proposal.id %> - <%= proposal.title %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+

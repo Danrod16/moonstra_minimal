@@ -2,6 +2,7 @@
   "name": "moonstra-minimal",
   "private": true,
   "dependencies": {
+    "@nathanvda/cocoon": "^1.2.14",
     "@hotwired/stimulus": "^3.0.1",
     "@rails/actioncable": "^6.0.0",
     "@rails/activestorage": "^6.0.0",
