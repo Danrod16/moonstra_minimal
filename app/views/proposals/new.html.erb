@@ -1,12 +1,22 @@
 <div class="my-container">
-  <div class="big-card">
+  <div class="a4-card">
     <%= simple_form_for [@team,@proposal] do |f| %>
-      <%= f.input :title, class: "form-field" %>
-      <%= f.input :overview, class: "form-field" %>
-      <%= f.input :goals, class: "bg-black" %>
-      <%= f.input :total_price, class: "bg-black" %>
-      <%= f.input :expiry_date, class: "bg-black" %>
-      <%= f.association :teams_project, collection: @teams_projects, class: "bg-black" %>
+    <div class="minimal-proposal-header">
+      <h1><%= f.text_area :title, class: "form-field", label: false, placeholder: "Title of the project", id: "proposal_title" %></h1>
+      <div class="right-side-header">
+        <span>
+          Sent on: <%= Date.today %>
+        </span>
+        <span>
+          Expiriry date:<%= f.input :expiry_date, class: "bg-black", label: false %>
+        </span>
+        <%= f.association :teams_project, selected: "Project", collection: @teams_projects, class: "bg-black", label: false  %>
+      </div>
+    </div>
+     <h3 class="minimal_proposal">Overview</h3>
+      <%= f.input :overview, class: "form-field", label: false, placeholder: "Overview of the project"  %>
+     <h3 class="minimal_proposal">Goals</h3>
+      <%= f.input :goals, class: "bg-black", label: false, placeholder: "Goals of the project" %>
       <%= f.simple_fields_for :client do |client| %>
         <%= render 'client_fields', :f => client %>
       <% end %>
@@ -19,6 +29,7 @@
       <div class='links'>
         <%= link_to_add_association 'add deliverable', f, :proposal_deliverables %>
       </div>
+      <%= f.input :total_price, class: "bg-black", label: false, placeholder: "total price of the project"  %>
       <%= f.button :submit, class: "primary-button" %>
     <% end %>
   </div>
