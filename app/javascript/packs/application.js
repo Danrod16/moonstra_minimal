@@ -30,6 +30,7 @@ ActiveStorage.start()
 import "bootstrap";
 require("jquery")
 require("@nathanvda/cocoon")
+require("selectize")
 
 // Internal imports, e.g:
 import { hide_client_add } from '../plugins/hide_client_form';
@@ -40,3 +41,7 @@ document.addEventListener('turbolinks:load', () => {
   initFlatpickr();
   // initSelect2();
 });
+
+
+import { selectize } from '../components/selectize';
+selectize();
