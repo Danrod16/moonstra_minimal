@@ -10,6 +10,10 @@
               <p><%= project.description %></p>
               <p>Owner: <%= project.user.first_name %></p>
               <p> Finders fee: <%= project.finders_fee %></p>
+              <p>Category:</p>
+              <% project.categories. each do |category| %>
+                <p><%= category.name %></p>
+              <% end %>
             </div>
             <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="small-card-user avatar-bordered" />
           </div>
