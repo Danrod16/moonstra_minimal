@@ -36,6 +36,7 @@
                 required: true,
                 autofocus: true,
                 input_html: { autocomplete: "job_title" }%>
+          <%= f.input :photo, as: :file %>
 
           <%= button_tag "Previous", type: "button", class: "btn-primary",
             data: {
