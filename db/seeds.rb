@@ -13,6 +13,7 @@ User.destroy_all
 Team.destroy_all
 Project.destroy_all
 ProjectMember.destroy_all
+Category.destroy_all
 puts "DB CLEANED!"
 puts "Creating admin profile and team..."
 admin_team = Team.create!(name: 'Moonstra', description: 'Awesome company of awesome people')
@@ -28,4 +29,7 @@ puts 'Creating faker seeds...'
     project_members = ProjectMember.create!(teams_project: team_project, user: user)
   end
 end
+seo = Category.create!(name: "SEO")
+web_development = Category.create!(name: "Web development")
+design = Category.create!(name: "Design")
 puts 'DB CREATED!'

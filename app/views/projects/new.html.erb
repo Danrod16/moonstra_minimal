@@ -8,8 +8,9 @@
       <%= f.input :finders_fee, class: "form-field" %>
       <%= f.label :private do %>
         <%= f.check_box :private %>
-        private
-      <% end %>
+          private
+        <% end %>
+        <%= f.association :categories, collection: Category.order("name"),required: true, input_html: { multiple: true }, include_blank: false, include_hidden: false, as: :check_boxes %>
       <%= f.button :submit, class: "primary-button" %>
     <% end %>
   </div>
