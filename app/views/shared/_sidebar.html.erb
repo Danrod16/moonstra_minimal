@@ -6,6 +6,12 @@
     <p>
       Vault: <%= current_user.team.diamonds %>
     </p>
+    <ul>
+      <li> <%= link_to "Overview", root_path(@team) %> </li>
+      <li> <%= link_to "Proposals", team_proposals_path(@team) %> </li>
+      <li> <%= link_to "Clients", team_proposals_path(@team) %> </li>
+
+    </ul>
   </div>
 
   <%= link_to "Find projects", projects_path, class: "btn btn-primary" %>

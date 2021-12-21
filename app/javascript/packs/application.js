@@ -8,6 +8,14 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 
+import { Application } from "@hotwired/stimulus"
+import { definitionsFromContext } from "@hotwired/stimulus-webpack-helpers"
+
+const application = Application.start()
+const context = require.context("../controllers", true, /\.js$/)
+application.load(definitionsFromContext(context))
+window.Stimulus = application
+
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
@@ -20,9 +28,11 @@ ActiveStorage.start()
 
 // External imports
 import "bootstrap";
+require("jquery")
+require("@nathanvda/cocoon")
 
 // Internal imports, e.g:
-// import { initSelect2 } from '../components/init_select2';
+import { hide_client_add } from '../plugins/hide_client_form';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:

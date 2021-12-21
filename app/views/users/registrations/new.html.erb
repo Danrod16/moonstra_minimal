@@ -1,49 +1,80 @@
 <h2>Sign up</h2>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <% if !params[:team].nil? %>
-      <%= f.hidden_field :team_id, :value => params[:team].to_i %>
-    <% else %>
-      <%= f.association :team,
-              required: true,
-              autofocus: true,
-              input_html: { autocomplete: "first_name" }%>
-    <% end %>
-    <%= f.input :first_name,
+<div class="my-container">
+  <div class="big-card" style="height: 300px;">
+    <div data-controller="wizard">
+      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= f.error_notification %>
+        <%#------ONE------%>
+        <div data-wizard-target="step">
+            <% if !params[:team].nil? %>
+              <%= f.hidden_field :team_id, :value => params[:team].to_i%>
+            <% else %>
+              <%= f.association :team,
+                      required: true,
+                      autofocus: true,
+                      label: "Choose Team, if you have one",
+                      input_html: { autocomplete: "first_name" }%>
+            <% end %>
+          <%= button_tag "Next", type: "button", class: "btn-primary",
+            data: {
+              action: "click->wizard#goToNext",
+              next_step: "1"
+            } %>
+        </div>
+        <%#------TWO------%>
+        <div data-wizard-target="step", class="hidden">
+          <%= f.input :first_name,
                 required: true,
                 autofocus: true,
                 input_html: { autocomplete: "first_name" }%>
-    <%= f.input :last_name,
+          <%= f.input :last_name,
                 required: true,
                 autofocus: true,
                 input_html: { autocomplete: "last_name" }%>
-    <%= f.input :username,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "username" }%>
-    <%= f.input :job_title,
+          <%= f.input :job_title,
                 required: true,
                 autofocus: true,
                 input_html: { autocomplete: "job_title" }%>
-    <%= f.input :email,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "email" }%>
-    <%= f.input :password,
-                required: true,
-                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                required: true,
-                input_html: { autocomplete: "new-password" } %>
-  </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
-  </div>
-<% end %>
+          <%= button_tag "Previous", type: "button", class: "btn-primary",
+            data: {
+              action: "click->wizard#goToPrevious",
+              previous_step: "1"
+            } %>
+          <%= button_tag "Next", type: "button", class: "btn-primary",
+            data: {
+              action: "click->wizard#goToNext",
+              next_step: "2"
+            } %>
+        </div>
+          <%#------THREE------%>
+        <div data-wizard-target="step", class="hidden">
+          <%= f.input :username,
+            required: true,
+            autofocus: true,
+            input_html: { autocomplete: "username" }%>
+          <%= f.input :email,
+            required: true,
+            autofocus: true,
+            input_html: { autocomplete: "email" }%>
+          <%= f.input :password,
+            required: true,
+            hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+            input_html: { autocomplete: "new-password" } %>
+          <%= f.input :password_confirmation,
+            required: true,
+            input_html: { autocomplete: "new-password" } %>
 
-<%= render "devise/shared/links" %>
+          <%= button_tag "Previous", type: "button", class: "btn-primary",
+            data: {
+              action: "click->wizard#goToPrevious",
+              previous_step: "2"
+            } %>
+          <%= f.button :submit, class: "btn-primary" %>
+          </div>
+      <% end %>
+      <%= render "devise/shared/links" %>
+    </div>
+  </div>
+</div>

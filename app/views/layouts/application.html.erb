@@ -14,7 +14,7 @@
 
   <body>
     <%= render 'shared/flashes' %>
-    <% if controller_name == "dashboards" %>
+    <% if controller_name == "dashboards" || controller_name == "proposals" %>
     <div class="dashboard-wrapper">
       <%= render 'shared/sidebar' %>
       <div class="dashboard-body">
