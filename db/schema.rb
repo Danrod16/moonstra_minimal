@@ -12,7 +12,6 @@
 
 ActiveRecord::Schema.define(version: 2021_12_20_111359) do
 
-
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -22,7 +21,7 @@ ActiveRecord::Schema.define(version: 2021_12_20_111359) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
-  
+
   create_table "clients", force: :cascade do |t|
     t.string "company_name"
     t.string "first_name"
@@ -34,6 +33,14 @@ ActiveRecord::Schema.define(version: 2021_12_20_111359) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "deliverables", force: :cascade do |t|
+    t.string "title"
+    t.integer "price", default: 0
+    t.integer "time_alocation"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "project_categories", force: :cascade do |t|
     t.bigint "category_id"
     t.bigint "project_id"
@@ -41,15 +48,6 @@ ActiveRecord::Schema.define(version: 2021_12_20_111359) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["category_id"], name: "index_project_categories_on_category_id"
     t.index ["project_id"], name: "index_project_categories_on_project_id"
-  end
-
-  create_table "deliverables", force: :cascade do |t|
-    t.string "title"
-    t.integer "price", default: 0
-    t.integer "time_alocation"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-
   end
 
   create_table "project_members", force: :cascade do |t|
