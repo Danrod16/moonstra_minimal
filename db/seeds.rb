@@ -18,6 +18,7 @@ puts "DB CLEANED!"
 puts "Creating admin profile and team..."
 admin_team = Team.create!(name: 'Moonstra', description: 'Awesome company of awesome people')
 admin = User.create!(email: 'admin@gmail.com', first_name: 'Dani', last_name: 'Rodriguez', username: 'Danrod16', role: 'admin', password: 'password', team: admin_team)
+member = User.create!(email:'member@gmail.com', first_name: 'Alex', last_name: 'Gorina', username: 'AGorinam', role:'regular', password: 'password', team: admin_team)
 puts "ADMINS CREATED!"
 puts 'Creating faker seeds...'
 20.times do
