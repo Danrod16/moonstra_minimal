@@ -10,7 +10,8 @@
         <%= f.check_box :private %>
           private
         <% end %>
-        <%= f.association :categories, collection: Category.order("name"),required: true, input_html: { multiple: true }, include_blank: false, include_hidden: false, as: :check_boxes %>
+      <%= f.association :categories, collection: Category.order("name"),required: true, input_html: { multiple: true }, include_blank: false, include_hidden: false, as: :check_boxes %>
+      <%= f.input :user, collection: User.where(team: current_user.team), required: true, input_html: { multiple: true }, include_blank: false, include_hidden: false, as: :check_boxes %>
       <%= f.button :submit, class: "primary-button" %>
     <% end %>
   </div>
