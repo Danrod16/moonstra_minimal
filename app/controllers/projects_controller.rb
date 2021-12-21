@@ -12,13 +12,15 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    raise
+
     if @project.save! && @project.private # When project is private to the team
       create_project_category
+      asign_member_to_project
       TeamsProject.create(team: @team, project: @project)
       redirect_to team_overview_path(@team)
     elsif @project.save! # When project is public
       create_project_category
+      asign_member_to_project
       redirect_to projects_path
     else
       flash[:alert] = "We couldn't create your project, try again later"
@@ -43,8 +45,9 @@ class ProjectsController < ApplicationController
   end
 
   def asign_member_to_project
-
-
+    @members.each do |project_member|
+      ProjectMember.create(project: @project, user: project_member)
+    end
   end
 
   def project_params
