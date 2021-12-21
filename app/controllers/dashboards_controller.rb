@@ -3,7 +3,7 @@ class DashboardsController < ApplicationController
   before_action :set_team
 
   def overview
-    @private_projects = @team.projects
+    @team_projects = @team.teams_projects
   end
 
   def proposals
