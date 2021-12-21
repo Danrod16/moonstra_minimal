@@ -13,10 +13,17 @@ class ProjectsController < ApplicationController
     @project = Project.new(project_params)
     @project.user = current_user
     @team = current_user.team
+    @categories = Category.where(id: params[:project][:category_ids])
+
     if @project.save! && @project.private
+      # params {categories: [instance_1, ]}
       TeamsProject.create(team: @team, project: @project)
       redirect_to team_overview_path(@team)
+
     elsif @project.save!
+      @categories.each do |category_instance|
+        ProjectCategory.create(project: @project, category: category_instance)
+      end
       redirect_to projects_path
     else
       flash[:alert] = "We couldn't create your project, try again later"
