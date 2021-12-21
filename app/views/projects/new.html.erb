@@ -11,7 +11,7 @@
           private
         <% end %>
       <%= f.association :categories, collection: Category.order("name"),required: true, input_html: { multiple: true, class: "selectize" }, include_blank: false, include_hidden: false %>
-      <%= f.input :project_members, collection: User.where(team: current_user.team), :label_method => :first_name,  required: true, input_html: { multiple: true }, include_blank: false, include_hidden: false, as: :check_boxes %>
+      <%= f.input :project_members, collection: User.where(team: current_user.team), :label_method => :first_name,  required: true, input_html: { multiple: true, class: 'selectize' }, include_blank: false, include_hidden: false %>
       <%= f.button :submit, class: "primary-button" %>
     <% end %>
   </div>
