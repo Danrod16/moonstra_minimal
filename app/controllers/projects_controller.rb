@@ -14,6 +14,7 @@ class ProjectsController < ApplicationController
   def create
 
     if @project.save! && @project.private # When project is private to the team
+      @teams_project = TeamsProject.create(team: @team, project: @project)
       # Add project categories to project:
       create_project_category
       # Asign members of the team to the project:
@@ -36,7 +37,6 @@ class ProjectsController < ApplicationController
     @team = current_user.team
     @categories = Category.where(id: params[:project][:category_ids]) # Finds instances from category ids from simple form when creating a project
     @members = User.where(id: params[:project][:project_members])
-    @teams_project = TeamsProject.create(team: @team, project: @project)
   end
 
   def create_project_category
