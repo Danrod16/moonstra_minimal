@@ -7,8 +7,11 @@
   <h2>Current team projects</h2>
   <div class="small-card p-3" style="border-radius: 10px">
     <ul style="list-style-type: none">
-      <% @private_projects.limit(5).each do |private_project| %>
-        <li> <%= private_project.name %> </li>
+      <% @team_projects.each do |team_project| %>
+        <li> <%= team_project.project.name %> </li>
+        <% team_project.project_members.each do |member| %>
+          <p> <%= member.user.first_name %> </p>
+        <% end %>
       <% end %>
     </ul>
   </div>

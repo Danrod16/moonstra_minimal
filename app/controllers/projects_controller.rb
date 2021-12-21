@@ -18,7 +18,6 @@ class ProjectsController < ApplicationController
       create_project_category
       # Asign members of the team to the project:
       asign_member_to_project
-      @teams_project = TeamsProject.create(team: @team, project: @project)
       redirect_to team_overview_path(@team)
     elsif @project.save! # When project is public
       create_project_category
@@ -36,7 +35,8 @@ class ProjectsController < ApplicationController
     @project.user = current_user
     @team = current_user.team
     @categories = Category.where(id: params[:project][:category_ids]) # Finds instances from category ids from simple form when creating a project
-    @members = User.where(id: params[:project][:user])
+    @members = User.where(id: params[:project][:project_members])
+    @teams_project = TeamsProject.create(team: @team, project: @project)
   end
 
   def create_project_category
