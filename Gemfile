@@ -69,3 +69,7 @@ gem 'faker'
 
 # Stimulus
 gem 'stimulus-rails'
+
+# Cloudinary
+
+gem 'cloudinary', '~> 1.16.0'

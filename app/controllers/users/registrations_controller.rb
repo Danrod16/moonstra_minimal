@@ -12,8 +12,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     build_resource(sign_up_params)
-    team = Team.find(params[:user][:team_id].to_i)
-    resource.team_id = team.id
+
+    unless params[:user][:team_id] == ""
+      team = Team.find(params[:user][:team_id].to_i)
+      resource.team_id = team.id
+    end
     resource.save!
     yield resource if block_given?
     if resource.persisted?
@@ -34,9 +37,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   # GET /resource/edit
-  # def edit
-  #   super
-  # end
+  def edit
+    @team = current_user.team
+    super
+  end
 
   # PUT /resource
   # def update

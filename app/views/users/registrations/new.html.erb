@@ -1,7 +1,7 @@
 <h2>Sign up</h2>
 
-<div class="my-container">
-  <div class="big-card" style="height: 300px;">
+<div class="my-container" style="min-height: 100vh;">
+  <div class="big-card">
     <div data-controller="wizard">
       <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= f.error_notification %>
@@ -36,6 +36,7 @@
                 required: true,
                 autofocus: true,
                 input_html: { autocomplete: "job_title" }%>
+          <%= f.input :photo, as: :file %>
 
           <%= button_tag "Previous", type: "button", class: "btn-primary",
             data: {
