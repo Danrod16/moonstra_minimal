@@ -1,0 +1,53 @@
+.a4-card {
+  margin: 0px 10px;
+  padding: 25px;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  width: 75vw;
+  input, textarea, select {
+    border: none;
+    // border-bottom: solid 2px #e5e3e3;
+  }
+  label {
+    color: black;
+  }
+}
+
+#proposal_title {
+  width: 150px;
+  min-height: 170px;
+  text-overflow: none;
+    font-size: 36px;
+}
+
+.deliverable-minimal {
+  display: flex;
+}
+
+.expiry-date-minimal {
+  display:flex;
+  line-height: 40px;
+  color: black;
+}
+
+.minimal_proposal {
+  color: black;
+  border-bottom: solid 1px;
+}
+
+.modal-body {
+  padding: 20px;
+}
+
+.minimal-proposal-header {
+  color: black;
+  display: flex;
+  justify-content: space-between;
+  .right-side-header {
+    padding: 20px;
+    background-color: #f3f3f3;
+    display: grid;
+  }
+}
+

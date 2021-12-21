@@ -33,8 +33,10 @@ require("@nathanvda/cocoon")
 
 // Internal imports, e.g:
 import { hide_client_add } from '../plugins/hide_client_form';
+import { initFlatpickr } from "../plugins/flatpickr";
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
+  initFlatpickr();
   // initSelect2();
 });
