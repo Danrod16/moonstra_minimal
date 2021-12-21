@@ -14,7 +14,9 @@ class ProjectsController < ApplicationController
   def create
 
     if @project.save! && @project.private # When project is private to the team
+      # Add project categories to project:
       create_project_category
+      # Asign members of the team to the project:
       asign_member_to_project
       @teams_project = TeamsProject.create(team: @team, project: @project)
       redirect_to team_overview_path(@team)
