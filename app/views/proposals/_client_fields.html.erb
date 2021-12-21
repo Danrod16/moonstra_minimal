@@ -1,9 +1,7 @@
-<%= f.input :company_name, class: "form-field", placeholder: "Company name" %>
-<%= f.input :first_name, class: "bg-black", placeholder: "First name" %>
-<%= f.input :last_name, class: "bg-black", placeholder: "Last name" %>
-<%= f.input :email, class: "bg-black", placeholder: "Email" %>
-<%= f.input :address, class: "bg-black", placeholder: "Address" %>
-<%= f.input :cif, class: "bg-black", placeholder: "CIF" %>
+<%= f.input :company_name, class: "form-field", placeholder: "Company name", label: false %>
+<%= f.input :first_name, class: "bg-black", placeholder: "First name", label: false %>
+<%= f.input :last_name, class: "bg-black", placeholder: "Last name", label: false %>
+<%= f.input :email, class: "bg-black", placeholder: "Email", label: false %>
+<%= f.input :address, class: "bg-black", placeholder: "Address", label: false %>
+<%= f.input :cif, class: "bg-black", placeholder: "CIF", label: false %>
 <%= link_to_remove_association "remove client", f %>
-
-

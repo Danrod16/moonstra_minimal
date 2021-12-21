@@ -21,16 +21,32 @@
     font-size: 36px;
 }
 
+.deliverable-minimal {
+  display: flex;
+}
+
+.expiry-date-minimal {
+  display:flex;
+  line-height: 40px;
+  color: black;
+}
 
 .minimal_proposal {
   color: black;
   border-bottom: solid 1px;
 }
 
+.modal-body {
+  padding: 20px;
+}
+
 .minimal-proposal-header {
+  color: black;
   display: flex;
   justify-content: space-between;
   .right-side-header {
+    padding: 20px;
+    background-color: #f3f3f3;
     display: grid;
   }
 }
