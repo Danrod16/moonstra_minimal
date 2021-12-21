@@ -9,6 +9,7 @@ export default class extends Controller {
 
     this.stepTargets[nextStep].classList.add("hidden");
     this.stepTargets[actualStep].classList.remove("hidden");
+
   }
 
   goToPrevious(event) {
@@ -17,5 +18,6 @@ export default class extends Controller {
 
     this.stepTargets[actualStep].classList.add("hidden");
     this.stepTargets[previousStep].classList.remove("hidden");
+
   }
 }

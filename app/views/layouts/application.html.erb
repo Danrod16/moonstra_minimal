@@ -13,18 +13,20 @@
   </head>
 
   <body>
-    <%= render 'shared/flashes' %>
-    <% if controller_name == "dashboards" %>
-    <div class="dashboard-wrapper">
-      <%= render 'shared/sidebar' %>
-      <div class="dashboard-body">
-        <%= yield %>
+    <div class="wrapper-content" style="min-height: 100vh;">
+      <%= render 'shared/flashes' %>
+      <% if controller_name == "dashboards" %>
+      <div class="dashboard-wrapper">
+        <%= render 'shared/sidebar' %>
+        <div class="dashboard-body">
+          <%= yield %>
+        </div>
       </div>
+      <% else %>
+        <%= render 'shared/navbar' %>
+        <%= yield %>
+      <% end %>
     </div>
-    <% else %>
-      <%= render 'shared/navbar' %>
-      <%= yield %>
-    <% end %>
     <%= render 'shared/footer' %>
   </body>
 </html>
