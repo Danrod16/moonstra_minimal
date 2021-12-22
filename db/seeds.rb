@@ -9,11 +9,16 @@
 require 'faker'
 
 puts "Cleaning DB..."
+
 User.delete_all
 Team.delete_all
 Project.delete_all
 ProjectMember.delete_all
 Category.delete_all
+
+
+puts "Creating project categories"
+
 
 seo = Category.create!(name: "SEO")
 web_development = Category.create!(name: "Web development")
@@ -31,7 +36,8 @@ puts "Creating Moonstra projects"
   ProjectMember.create!(teams_project: moonstra_team_project, user: dani)
   ProjectMember.create!(teams_project: moonstra_team_project, user: alex)
   rand(2..4).times do
-    Proposal.create!(title: Faker::Quote.famous_last_words, overview: Faker::Lorem.paragraphs(sentence_count: rand(10..15)), goals: Faker::Lorem.paragraphs(sentence_count: rand(2..5)) , total_price: rand(100..1000), exprire_date: Faker::Date.between(from: '2022-01-01', to: '2022-12-31'), client: Faker::Company.name, teams_project: moonstra_team_project, status: "pending")
+    client = Client.create!(company_name: Faker::Company.name, first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, address: Faker::Address.full_address, cif: Faker::Address.postcode, email: Faker::Internet.email)
+    Proposal.create!(title: Faker::Quote.famous_last_words, overview: Faker::Lorem.paragraph, goals: Faker::Lorem.paragraph, total_price: rand(100..1000), expiry_date: Faker::Date.between(from: '2022-01-01', to: '2022-12-31'), client: client, teams_project: moonstra_team_project, status: "pending")
   end
 end
 puts "ADMINS CREATED!"
@@ -45,21 +51,5 @@ puts 'Creating faker seeds...'
     project_members = ProjectMember.create!(teams_project: team_project, user: user)
   end
 end
-
-
-create_table "proposals", force: :cascade do |t|
-    t.string "title"
-    t.text "overview"
-    t.text "goals"
-    t.integer "total_price", default: 0
-    t.date "expiry_date"
-    t.bigint "client_id", null: false
-    t.bigint "teams_project_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["client_id"], name: "index_proposals_on_client_id"
-    t.index ["teams_project_id"], name: "index_proposals_on_teams_project_id"
-  end
-puts "Creating project categories"
 
 puts 'DB CREATED!'

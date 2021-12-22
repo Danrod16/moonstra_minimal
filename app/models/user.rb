@@ -26,11 +26,11 @@ class User < ApplicationRecord
   end
 
   def astronaut?
-    self.role == "astronaut"
+    self.team_role == "astronaut"
   end
 
   def commander?
-    self.role == "commander"
+    self.team_role == "commander"
   end
 
   def full_name

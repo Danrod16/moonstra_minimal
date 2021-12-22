@@ -29,6 +29,17 @@ class TeamsController < ApplicationController
     authorize @team
   end
 
+  def update
+    @team = Team.find(params[:id])
+
+    if @team.update(teams_params)
+      redirect_to team_overview_path(@team)
+    else
+      flash[:alert] = "We couldn't update your team, try again later"
+    end
+    authorize @team
+  end
+
   private
 
   def teams_params

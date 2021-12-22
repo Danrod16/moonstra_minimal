@@ -16,4 +16,8 @@ class TeamPolicy < ApplicationPolicy
   def show?
     true
   end
+
+  def update?
+    user.commander?
+  end
 end
