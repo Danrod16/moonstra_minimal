@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_22_094121) do
+ActiveRecord::Schema.define(version: 2021_12_22_094603) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -117,7 +117,7 @@ ActiveRecord::Schema.define(version: 2021_12_22_094121) do
     t.bigint "teams_project_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "status"
+    t.string "status", default: "pending"
     t.index ["client_id"], name: "index_proposals_on_client_id"
     t.index ["teams_project_id"], name: "index_proposals_on_teams_project_id"
   end
