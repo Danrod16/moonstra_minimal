@@ -17,7 +17,7 @@
           <% @teams_projects.each do |teams_project| %>
               <% teams_project.proposals.each do |proposal| %>
                 <li>
-                  <div style="display:flex flex-direction:vertical">
+                  <div style="display:flex flex-direction:column">
                     <%= proposal.title %>
                     <%= proposal.teams_project.project.name %> -
                     <%= proposal.client.company_name %>
