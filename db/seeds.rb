@@ -18,6 +18,7 @@ Client.destroy_all
 TeamsProject.destroy_all
 
 puts "Creating project categories"
+
 seo = Category.create!(name: "SEO")
 web_development = Category.create!(name: "Web development")
 design = Category.create!(name: "Design")

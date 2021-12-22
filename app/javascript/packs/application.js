@@ -42,6 +42,7 @@ document.addEventListener('turbolinks:load', () => {
   // initSelect2();
 });
 
+// Import selectize method from components/selectize.js
 
 import { selectize } from '../components/selectize';
 selectize();
