@@ -12,12 +12,15 @@
 
   <div class="tab-content" id="vinyl-tabContent">
     <div class="tab-pane fade show active" id="yours" role="tabpanel" aria-labelledby="yours-tab">
+
+    </div>
+    <div class="tab-pane fade" id="teams" role="tabpanel" aria-labelledby="teams-tab">
       <div class="big-card">
         <ul style="list-style:none">
           <% @teams_projects.each do |teams_project| %>
               <% teams_project.proposals.each do |proposal| %>
                 <li>
-                  <div style="display:flex flex-direction:column">
+                  <div class="d-flex flex-column">
                     <%= proposal.title %>
                     <%= proposal.teams_project.project.name %> -
                     <%= proposal.client.company_name %>
@@ -28,7 +31,5 @@
           <% end %>
         </ul>
       </div>
-    </div>
-    <div class="tab-pane fade" id="teams" role="tabpanel" aria-labelledby="teams-tab">
     </div>
   </div>
