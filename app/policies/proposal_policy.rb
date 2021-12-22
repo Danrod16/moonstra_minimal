@@ -17,4 +17,16 @@ class ProposalPolicy < ApplicationPolicy
   def show?
     true
   end
+
+  def update?
+    true
+  end
+
+  def accepted?
+    true
+  end
+
+  def declined?
+    true
+  end
 end

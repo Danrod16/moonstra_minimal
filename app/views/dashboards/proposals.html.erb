@@ -21,7 +21,14 @@
                     <%= proposal.teams_project.project.name %> -
                     <%= proposal.client.company_name %>
                   </div>
-                  <%= proposal.status %> - <%= proposal.total_price %> €
+                   - <%= proposal.total_price %> €
+                  <%= proposal.status %>
+                  <%= link_to team_proposal_accepted_path(@team, proposal) do %>
+                    <i class="fas fa-check-circle"></i>
+                  <% end %>
+                  <%= link_to team_proposal_declined_path(@team, proposal) do %>
+                    <i class="fas fa-times-circle"></i>
+                  <% end %>
                 </li>
               <% end %>
           <% end %>

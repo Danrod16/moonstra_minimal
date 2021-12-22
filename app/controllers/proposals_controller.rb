@@ -28,6 +28,24 @@ class ProposalsController < ApplicationController
     authorize @proposal
   end
 
+  def accepted
+    @proposal = Proposal.find(params[:proposal_id])
+    @proposal.teams_project.team = @team
+    @proposal.status = "accepted"
+    @proposal.save
+    redirect_to team_proposals_path(@team)
+    authorize @proposal
+  end
+
+  def declined
+    @proposal = Proposal.find(params[:proposal_id])
+    @proposal.teams_project.team = @team
+    @proposal.status = "declined"
+    @proposal.save
+    redirect_to team_proposals_path(@team)
+    authorize @proposal
+  end
+
   private
 
   def set_team
@@ -35,6 +53,6 @@ class ProposalsController < ApplicationController
   end
 
   def proposal_params
-    params.require(:proposal).permit(:title, :overview, :goals, :total_price, :expiry_date, client_attributes: [:id, :company_name, :first_name, :last_name, :address, :cif, :email, :_destroy], deliverable_attributes: [:title, :price])
+    params.require(:proposal).permit(:title, :status, :overview, :goals, :total_price, :expiry_date, client_attributes: [:id, :company_name, :first_name, :last_name, :address, :cif, :email], deliverable_attributes: [:title, :price])
   end
 end
