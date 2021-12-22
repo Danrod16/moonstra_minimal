@@ -43,5 +43,6 @@ document.addEventListener('turbolinks:load', () => {
 });
 
 // Import selectize method from components/selectize.js
+
 import { selectize } from '../components/selectize';
 selectize();
