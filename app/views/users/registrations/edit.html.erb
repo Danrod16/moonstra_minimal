@@ -1,7 +1,3 @@
-<%= cl_image_tag @current_user.photo.key, height: 100, width: 100, crop: :fill %>
-<p>Username: <%= @current_user.username %>
-
-
 <div id="accordion">
   <div class="card">
     <div class="card-header" id="headingOne">
@@ -12,7 +8,7 @@
       </h5>
     </div>
 
-    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
       <div class="card-body">
         <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
@@ -72,7 +68,7 @@
     </div>
     <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
       <div class="card-body">
-        Administrate your Team
+        <%= render 'teams/edit' %>
       </div>
     </div>
   </div>
