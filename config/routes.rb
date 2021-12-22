@@ -6,7 +6,7 @@ Rails.application.routes.draw do
         sessions: 'users/sessions',
         registrations: 'users/registrations'
       }
-  resources :teams, only: [:new, :create, :index, :show] do
+  resources :teams, only: [:new, :create, :index, :show, :update] do
     get 'overview', to: 'dashboards#overview'
     get 'proposals', to: 'dashboards#proposals'
     resources :proposals, only: [:new, :create, :update, :edit, :show]
