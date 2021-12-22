@@ -9,11 +9,11 @@
 require 'faker'
 
 puts "Cleaning DB..."
-User.destroy_all
-Team.destroy_all
-Project.destroy_all
-ProjectMember.destroy_all
-Category.destroy_all
+User.delete_all
+Team.delete_all
+Project.delete_all
+ProjectMember.delete_all
+Category.delete_all
 
 seo = Category.create!(name: "SEO")
 web_development = Category.create!(name: "Web development")
@@ -31,7 +31,7 @@ puts "Creating Moonstra projects"
   ProjectMember.create!(teams_project: moonstra_team_project, user: dani)
   ProjectMember.create!(teams_project: moonstra_team_project, user: alex)
   rand(2..4).times do
-    Proposal.create!(title: Faker::Quote.famous_last_words, overview: Faker::Lorem.paragraphs(sentence_count: rand(10..15)), goals: Faker::Lorem.paragraphs(sentence_count: rand(2..5)) , total_price: rand(100..1000), exprire_date: Faker::Date.between(from: '2022-01-01', to: '2022-12-31'), client: Faker::Company.name, teams_project: moonstra_team_project)
+    Proposal.create!(title: Faker::Quote.famous_last_words, overview: Faker::Lorem.paragraphs(sentence_count: rand(10..15)), goals: Faker::Lorem.paragraphs(sentence_count: rand(2..5)) , total_price: rand(100..1000), exprire_date: Faker::Date.between(from: '2022-01-01', to: '2022-12-31'), client: Faker::Company.name, teams_project: moonstra_team_project, status: "pending")
   end
 end
 puts "ADMINS CREATED!"

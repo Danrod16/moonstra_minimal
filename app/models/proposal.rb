@@ -6,7 +6,7 @@ class Proposal < ApplicationRecord
   validates :title, presence: true
   validates :total_price, presence: true
   validates :expiry_date, presence: true
-  validates :status, presence: true, inclusion: { in: STATUS }
+  validates :status, presence: true
   accepts_nested_attributes_for :client, reject_if: :all_blank, allow_destroy: true
   accepts_nested_attributes_for :proposal_deliverables
   accepts_nested_attributes_for :deliverables
