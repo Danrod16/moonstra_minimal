@@ -18,6 +18,7 @@ Client.destroy_all
 TeamsProject.destroy_all
 
 puts "Creating project categories"
+
 seo = Category.create!(name: "SEO")
 web_development = Category.create!(name: "Web development")
 design = Category.create!(name: "Design")
@@ -36,6 +37,7 @@ puts "Creating Moonstra projects"
   rand(2..4).times do
     client = Client.create!(company_name: Faker::Company.name, first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, address: Faker::Address.full_address, cif: Faker::Address.postcode, email: Faker::Internet.email)
     Proposal.create!(title: Faker::Quote.famous_last_words, overview: Faker::Lorem.paragraph, goals: Faker::Lorem.paragraph, total_price: rand(100..1000), expiry_date: Faker::Date.between(from: '2022-01-01', to: '2022-12-31'), client: client, teams_project: moonstra_team_project)
+
   end
 end
 puts "ADMINS CREATED!"

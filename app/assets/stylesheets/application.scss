@@ -7,9 +7,9 @@
 @import "bootstrap/scss/bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
-@import "flatpickr/dist/flatpickr.css";
-
-
+@import "flatpickr/dist/flatpickr";
+@import 'selectize';
+@import 'selectize.bootstrap3';
 // Your CSS partials
 @import "components/index";
 @import "pages/index";

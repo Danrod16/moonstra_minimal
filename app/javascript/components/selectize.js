@@ -5,7 +5,7 @@ const selectize = () => {
   $('.selectize').selectize({
     // create: true, (from example on selectize page)
     // sortField: 'text'
-    maxItems: 3
+    //maxItems: 3
   });
 
 };
