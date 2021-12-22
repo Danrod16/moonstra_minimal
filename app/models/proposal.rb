@@ -6,7 +6,22 @@ class Proposal < ApplicationRecord
   validates :title, presence: true
   validates :total_price, presence: true
   validates :expiry_date, presence: true
+  validates :status, presence: true, inclusion: { in: STATUS }
   accepts_nested_attributes_for :client, reject_if: :all_blank, allow_destroy: true
   accepts_nested_attributes_for :proposal_deliverables
   accepts_nested_attributes_for :deliverables
+
+  STATUSES = ["pending", "accepted", "declined"]
+
+  def accepted?
+    self.status == "accepted"
+  end
+
+  def pending?
+    self.status == "pending"
+  end
+
+  def declined?
+    self.status == "declined"
+  end
 end
