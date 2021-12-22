@@ -9,15 +9,16 @@
 require 'faker'
 
 puts "Cleaning DB..."
-User.destroy_all
-Team.destroy_all
-Project.destroy_all
-ProjectMember.destroy_all
-Category.destroy_all
-Client.destroy_all
-TeamsProject.destroy_all
+
+User.delete_all
+Team.delete_all
+Project.delete_all
+ProjectMember.delete_all
+Category.delete_all
+
 
 puts "Creating project categories"
+
 
 seo = Category.create!(name: "SEO")
 web_development = Category.create!(name: "Web development")
