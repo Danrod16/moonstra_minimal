@@ -24,13 +24,4 @@ class Proposal < ApplicationRecord
   def declined?
     self.status == "declined"
   end
-
-  def accepted!
-    self.status = "accepted"
-  end
-
-  def declined!
-    self.status = "declined"
-  end
-
 end
