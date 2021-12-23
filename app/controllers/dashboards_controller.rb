@@ -12,6 +12,10 @@ class DashboardsController < ApplicationController
     @user_projects = ProjectMember.where(user: current_user)
   end
 
+  def projects
+    @user_projects = ProjectMember.where(user: current_user)
+  end
+
   private
 
   def set_team

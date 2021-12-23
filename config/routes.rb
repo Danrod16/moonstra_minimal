@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :teams, only: [:new, :create, :index, :show, :update] do
     get 'overview', to: 'dashboards#overview'
     get 'proposals', to: 'dashboards#proposals'
+    get 'projects', to: 'dashboards#projects'
     resources :proposals, only: [:new, :create, :update, :edit, :show] do
       get 'accepted', to: 'proposals#accepted'
       get 'declined', to: 'proposals#declined'
