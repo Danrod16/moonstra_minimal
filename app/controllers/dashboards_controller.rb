@@ -4,7 +4,7 @@ class DashboardsController < ApplicationController
   before_action :set_team_projects, only: [:overview, :proposals, :projects]
 
   def overview
-    @last_projects = TeamsProject.where(team_id: current_user.team) #.order("updated_at DESC").limit(5)
+    @last_projects = TeamsProject.where(team_id: current_user.team).order("updated_at DESC").limit(5)
     @last_proposals = Proposal.where(teams_project: TeamsProject.where(team:current_user.team)).order("updated_at DESC").limit(5)
   end
 

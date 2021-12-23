@@ -9,7 +9,9 @@
   <ul style="list-style-type: none">
     <% @last_projects.each do |last_project| %>
       <li> <%= last_project.project.name %> </li>
-      <p><%= last_project.status %></p>
+      <% if last_project.status == "pending" %>
+        <p style="background-color:red"><%= last_project.status %></p>
+      <% end %>
       <% last_project.project_members.each do |member| %>
         <p> <%= member.user.first_name %> </p>
       <% end %>
