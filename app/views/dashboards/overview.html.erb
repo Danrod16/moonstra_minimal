@@ -1,20 +1,26 @@
-<div class="cards">
-  <div class="small-card">
-    <%= @team.name %>
-  </div>
+
+<div class="small-card">
+  <%= @team.name %>
 </div>
 
-  <h2>Current team projects</h2>
-  <div class="small-card p-3" style="border-radius: 10px">
-    <ul style="list-style-type: none">
-      <% @teams_projects.each do |teams_project| %>
-        <li> <%= teams_project.project.name %> </li>
-        <% teams_project.project_members.each do |member| %>
-          <p> <%= member.user.first_name %> </p>
-        <% end %>
+
+<h2>Current team projects</h2>
+<div class="small-card p-3" style="border-radius: 10px">
+  <ul style="list-style-type: none">
+    <% @teams_projects.each do |teams_project| %>
+      <li> <%= teams_project.project.name %> </li>
+      <% teams_project.project_members.each do |member| %>
+        <p> <%= member.user.first_name %> </p>
       <% end %>
-    </ul>
-  </div>
+    <% end %>
+  </ul>
+</div>
+
+<h2>Team's categories</h2>
+<div class="cards">
+  <% @teams_projects.each do |teams_project| %>
+    <%= teams_project.project.categories%>
+  <% end %>
 </div>
 
 <%= link_to "Profile", edit_user_registration_path %>
