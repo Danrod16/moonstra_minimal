@@ -4,7 +4,6 @@ class DashboardsController < ApplicationController
   before_action :set_team_projects, only: [:overview, :proposals]
 
   def overview
-
   end
 
   def proposals

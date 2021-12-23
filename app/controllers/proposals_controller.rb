@@ -33,6 +33,11 @@ class ProposalsController < ApplicationController
     @proposal.teams_project.team = @team
     @proposal.status = "accepted"
     @proposal.save
+
+    @teams_project = @proposal.teams_project
+    @teams_project.status = "accepted"
+    @teams_project.save
+
     redirect_to team_proposals_path(@team)
     authorize @proposal
   end
@@ -42,6 +47,13 @@ class ProposalsController < ApplicationController
     @proposal.teams_project.team = @team
     @proposal.status = "declined"
     @proposal.save
+
+    @teams_project = @proposal.teams_project
+    unless Proposal.where(status: "accepted", teams_project: @teams_project).present?
+      @teams_project.status = "declined"
+    end
+
+    @teams_project.save
     redirect_to team_proposals_path(@team)
     authorize @proposal
   end
