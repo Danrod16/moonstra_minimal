@@ -19,27 +19,21 @@
 <h2>Last proposals</h2>
 <div class="big-card">
   <ul style="list-style:none">
-    <% @teams_projects.each do |teams_project| %>
-        <% teams_project.proposals.last(5).each do |proposal| %>
-          <li>
-            <div class="d-flex flex-column">
-              <%= proposal.title %>
-              <%= proposal.teams_project.project.name %> -
-              <%= proposal.client.company_name %>
-            </div>
-            <%= proposal.status %> - <%= proposal.total_price %> €
-          </li>
-        <% end %>
+    <% @last_proposals.each do |last_proposal| %>
+      <li>
+        <div class="d-flex flex-column">
+          <%= last_proposal.title %>
+          <%= last_proposal.teams_project.project.name %> -
+          <%= last_proposal.client.company_name %>
+        </div>
+        <%= last_proposal.status %> - <%= last_proposal.total_price %> €
+      </li>
     <% end %>
   </ul>
 </div>
 
 <h2>Team's categories</h2>
-<div class="cards">
-  <% @teams_projects.each do |teams_project| %>
-    <%= teams_project.project.categories%>
-  <% end %>
-</div>
+
 
 
 <%= link_to "Profile", edit_user_registration_path %>
