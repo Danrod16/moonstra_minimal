@@ -1,10 +1,10 @@
 class DashboardsController < ApplicationController
   skip_after_action :verify_policy_scoped
-  before_action :set_team, only: [:overview, :find_team_projects, :proposals]
-  before_action :set_team_projects, only: [:overview, :proposals]
+  before_action :set_team, only: [:overview, :find_team_projects, :proposals, :projects]
+  before_action :set_team_projects, only: [:overview, :proposals, :projects]
 
   def overview
-    @last_projects = TeamsProject.where(team_id: current_user.team).order("updated_at DESC").limit(5)
+    @last_projects = TeamsProject.where(team_id: current_user.team) #.order("updated_at DESC").limit(5)
     @last_proposals = Proposal.where(teams_project: TeamsProject.where(team:current_user.team)).order("updated_at DESC").limit(5)
   end
 

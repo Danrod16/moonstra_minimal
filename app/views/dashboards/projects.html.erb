@@ -12,6 +12,9 @@
     <div class="tab-pane fade show active" id="yours" role="tabpanel" aria-labelledby="yours-tab">
       <div class="big-card">
         <ul style="list-style:none">
+          <% @user_projects.each do |users_project| %>
+              <%= users_project.teams_project.project.name %>
+          <% end %>
         </ul>
       </div>
     </div>
@@ -19,7 +22,7 @@
       <div class="big-card">
         <ul style="list-style:none">
           <% @teams_projects.each do |teams_project| %>
-            <%= teams_project.title%>
+            <%= teams_project.project.name %>
           <% end %>
         </ul>
       </div>
