@@ -9,6 +9,7 @@
   <ul style="list-style-type: none">
     <% @teams_projects.each do |teams_project| %>
       <li> <%= teams_project.project.name %> </li>
+      <p><%= teams_project.status %></p>
       <% teams_project.project_members.each do |member| %>
         <p> <%= member.user.first_name %> </p>
       <% end %>
