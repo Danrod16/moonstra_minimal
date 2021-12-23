@@ -4,24 +4,36 @@
 </div>
 
 
-<h2>Current team projects</h2>
+<h2>Last updated team projects</h2>
 <div class="small-card p-3" style="border-radius: 10px">
   <ul style="list-style-type: none">
-    <% @teams_projects.each do |teams_project| %>
-      <li> <%= teams_project.project.name %> </li>
-      <p><%= teams_project.status %></p>
-      <% teams_project.project_members.each do |member| %>
+    <% @last_projects.each do |last_project| %>
+      <li> <%= last_project.project.name %> </li>
+      <p><%= last_project.status %></p>
+      <% last_project.project_members.each do |member| %>
         <p> <%= member.user.first_name %> </p>
       <% end %>
     <% end %>
   </ul>
 </div>
+<h2>Last proposals</h2>
+<div class="big-card">
+  <ul style="list-style:none">
+    <% @last_proposals.each do |last_proposal| %>
+      <li>
+        <div class="d-flex flex-column">
+          <%= last_proposal.title %>
+          <%= last_proposal.teams_project.project.name %> -
+          <%= last_proposal.client.company_name %>
+        </div>
+        <%= last_proposal.status %> - <%= last_proposal.total_price %> €
+      </li>
+    <% end %>
+  </ul>
+</div>
 
 <h2>Team's categories</h2>
-<div class="cards">
-  <% @teams_projects.each do |teams_project| %>
-    <%= teams_project.project.categories%>
-  <% end %>
-</div>
+
+
 
 <%= link_to "Profile", edit_user_registration_path %>

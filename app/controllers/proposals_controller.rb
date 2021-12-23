@@ -49,7 +49,9 @@ class ProposalsController < ApplicationController
     @proposal.save
 
     @teams_project = @proposal.teams_project
-    unless Proposal.where(status: "accepted", teams_project: @teams_project).present?
+    if Proposal.where(status: "pending", teams_project: @teams_project).present?
+      @teams_project.status = "penbding"
+    elsif Proposal.where(status: "accepted", teams_project: @teams_project).blank?
       @teams_project.status = "declined"
     end
 
