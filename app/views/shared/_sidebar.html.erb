@@ -3,10 +3,9 @@
     <%= cl_image_tag current_user.photo.key, height: 100, width: 100, crop: :fill %>
     <p>Username: <%= current_user.username %></p>
     <p>
-      <%= current_user.team.name %>
-    </p>
-    <p>
-      Vault: <%= current_user.team.diamonds %>
+      <strong>
+        <%= current_user.team.name %>
+      </strong>
     </p>
     <ul>
       <li> <%= link_to "Overview", root_path(@team) %> </li>
@@ -17,6 +16,6 @@
     </ul>
   </div>
 
-  <%= link_to "Find projects", projects_path, class: "btn btn-primary" %>
+  <%= link_to "Find projects", projects_path %>
   <%= link_to "Create project", new_project_path %>
 </div>
