@@ -14,15 +14,15 @@
   }
 }
 
+.deliverables-minimal {
+  min-height: 350px;
+}
+
 #proposal_title {
   width: 150px;
   min-height: 170px;
   text-overflow: none;
     font-size: 36px;
-}
-
-.deliverable-minimal {
-  display: flex;
 }
 
 .expiry-date-minimal {
@@ -38,6 +38,10 @@
 
 .modal-body {
   padding: 20px;
+}
+
+.minimal_total_price {
+  display: flex;
 }
 
 .minimal-proposal-header {

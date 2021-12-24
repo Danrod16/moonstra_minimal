@@ -24,6 +24,7 @@
       <%= render 'client_modal', :f => f %>
       <!-- end Modal -->
     <h3 class="minimal_proposal">Deliverables</h3>
+    <div class="deliverables-minimal">
       <%= f.simple_fields_for :proposal_deliverables do |deliverable| %>
       <!-- deliverables -->
         <%= render 'proposal_deliverable_fields', :f => deliverable %>
@@ -31,8 +32,11 @@
       <div class='links'>
         <%= link_to_add_association 'add deliverable', f, :proposal_deliverables %>
       </div>
+    </div>
        <!-- End deliverables -->
+    <div class="minimal_total_price">
       <%= f.input :total_price, class: "bg-black", label: false, placeholder: "total price of the project"  %>
+    </div>
       <%= f.button :submit, class: "primary-button" %>
     <% end %>
   </div>
