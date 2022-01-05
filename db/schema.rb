@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_22_094603) do
+ActiveRecord::Schema.define(version: 2022_01_05_141934) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -103,7 +103,9 @@ ActiveRecord::Schema.define(version: 2021_12_22_094603) do
     t.bigint "proposal_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "project_members_id", null: false
     t.index ["deliverable_id"], name: "index_proposal_deliverables_on_deliverable_id"
+    t.index ["project_members_id"], name: "index_proposal_deliverables_on_project_members_id"
     t.index ["proposal_id"], name: "index_proposal_deliverables_on_proposal_id"
   end
 
@@ -169,6 +171,7 @@ ActiveRecord::Schema.define(version: 2021_12_22_094603) do
   add_foreign_key "project_members", "users"
   add_foreign_key "projects", "users"
   add_foreign_key "proposal_deliverables", "deliverables"
+  add_foreign_key "proposal_deliverables", "project_members", column: "project_members_id"
   add_foreign_key "proposal_deliverables", "proposals"
   add_foreign_key "proposals", "clients"
   add_foreign_key "proposals", "teams_projects"
