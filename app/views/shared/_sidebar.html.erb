@@ -3,18 +3,22 @@
     <%= cl_image_tag current_user.photo.key, height: 100, width: 100, crop: :fill %>
     <p>Username: <%= current_user.username %></p>
     <p>
+
+    <% if current_user.team.nil? %>
+    <% else %>
       <strong>
         <%= current_user.team.name %>
       </strong>
-    </p>
-    <ul>
-      <li> <%= link_to "Overview", root_path(@team) %> </li>
-      <li> <%= link_to "Proposals", team_proposals_path(@team) %> </li>
-      <li> <%= link_to "Projects", team_projects_path(@team) %> </li>
-      <li> <%= link_to "Clients", team_proposals_path(@team) %> </li>
-      <li> <%= link_to "Profile", edit_user_registration_path(@team) %> </li>
+      </p>
+      <ul>
+        <li> <%= link_to "Overview", root_path(@team) %> </li>
+        <li> <%= link_to "Proposals", team_proposals_path(@team) %> </li>
+        <li> <%= link_to "Projects", team_projects_path(@team) %> </li>
+        <li> <%= link_to "Clients", team_proposals_path(@team) %> </li>
+        <li> <%= link_to "Profile", edit_user_registration_path(@team) %> </li>
+      </ul>
+    <% end %>
 
-    </ul>
   </div>
 
   <%= link_to "Find projects", projects_path %>
