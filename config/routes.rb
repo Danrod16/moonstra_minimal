@@ -16,6 +16,10 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :users do
+    get 'overview', to: 'dashboards#overview_user'
+  end
+
   resources :projects, only: [:new, :create, :index]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

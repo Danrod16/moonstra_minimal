@@ -16,13 +16,19 @@ class DashboardsController < ApplicationController
     @user_projects = ProjectMember.where(user: current_user)
   end
 
+  def overview_user
+
+  end
+
   private
 
   def set_team
-    @team = Team.find(params[:team_id])
+
   end
 
   def set_team_projects
-    @teams_projects = @team.teams_projects
+    if params[:team_id]
+      @teams_projects = @team.teams_projects
+    end
   end
 end

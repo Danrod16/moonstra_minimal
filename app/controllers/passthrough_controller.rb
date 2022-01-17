@@ -6,8 +6,12 @@ class PassthroughController < ApplicationController
   def index
     if user_signed_in?
       if @current_user.regular?
-        path = team_overview_path(@current_user.team)
-        # Add "else "logic for admin once rails admin is setup
+        if @current_user.team.nil? #Redirect to users overview when no team
+          path = user_overview_path(@current_user)
+        else
+          path = team_overview_path(@current_user.team)
+          # Add "else "logic for admin once rails admin is setup
+        end
       else
         path = team_overview_path(@current_user.team)
       end
