@@ -5,22 +5,25 @@
     <p>
 
     <% if current_user.team.nil? %>
+    <ul style="list-style: none; padding: 0px">
+      <li><%= link_to "Find projects", projects_path %></li>
+      <li><%= link_to "Post services in marketplace" %></li>
+    </ul>
     <% else %>
       <strong>
         <%= current_user.team.name %>
       </strong>
       </p>
-      <ul>
+      <ul style="list-style: none;">
         <li> <%= link_to "Overview", root_path(@team) %> </li>
         <li> <%= link_to "Proposals", team_proposals_path(@team) %> </li>
         <li> <%= link_to "Projects", team_projects_path(@team) %> </li>
         <li> <%= link_to "Clients", team_proposals_path(@team) %> </li>
         <li> <%= link_to "Profile", edit_user_registration_path(@team) %> </li>
       </ul>
+      <%= link_to "Find projects", projects_path %>
+      <%= link_to "Create project", new_project_path %>
     <% end %>
 
   </div>
-
-  <%= link_to "Find projects", projects_path %>
-  <%= link_to "Create project", new_project_path %>
 </div>
