@@ -5,21 +5,23 @@ const selectize = () => {
   $('.selectize').selectize({
     // create: true, (from example on selectize page)
     // sortField: 'text'
-    //maxItems: 3
+    maxItems: 1,
     create: function(input, callback) {
-      $(".client-modal").modal().show();
+      $(".client-modal").modal();
       $("#client_company_name").val(input);
-    //   $("#new_client").on("submit", function(e) {
-    //     e.preventDefault();
-    //     $ajax({
-    //       method: "POST",
-    //       url: $(this).serialize(),
-    //       data: $(this).serialize(),
-    //       success: function(response){
-    //         console.log(response)
-    //       }
-    //     });
-    //   });
+
+      $("#new_client_form").on("submit", function(e) {
+        e.preventDefault();
+        $.ajax({
+          method: "POST",
+          url: $(this).attr("action"),
+          data: $(this).serialize(),
+          success: function(response){
+            callback({value: response.id, text: response.company_name});
+            $(".client-modal").modal("toggle");
+          }
+        });
+      });
     }
   });
 

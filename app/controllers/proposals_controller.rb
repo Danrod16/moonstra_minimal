@@ -63,6 +63,6 @@ class ProposalsController < ApplicationController
   end
 
   def proposal_params
-    params.require(:proposal).permit(:title, :status, :overview, :goals, :total_price, :expiry_date, client_attributes: [:id, :company_name, :first_name, :last_name, :address, :cif, :email], deliverable_attributes: [:title, :price])
+    params.require(:proposal).permit(:title, :status, :overview, :goals, :total_price, :expiry_date, :teams_project_id, proposal_deliverables_attributes: [:title, :price])
   end
 end

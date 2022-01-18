@@ -21,9 +21,7 @@
                           input_html: { class: "selectize", multiple: true}
                           %>
       </div>
-      <!-- cleint modal -->
-      <%= render 'client_modal', :f => f %>
-      <!-- end Modal -->
+
     </div>
      <h3 class="minimal_proposal">Overview</h3>
       <%= f.input :overview, class: "form-field", label: false, placeholder: "Overview of the project"  %>
@@ -46,5 +44,9 @@
     <% end %>
   </div>
 </div>
+<!-- cleint modal -->
+<%= render 'client_modal' %>
+<!-- end Modal -->
+
 
 

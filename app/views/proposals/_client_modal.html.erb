@@ -7,14 +7,12 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <%= form_for :client, html: { id: :new_client_form } do |client| %>
+      <%= form_for Client.new, html: { id: :new_client_form } do |client| %>
         <div class="modal-body">
             <%= render 'client_fields', :f => client %>
-          <%#= link_to_add_association 'add client', f, :client, data: {:'client-target' => "button"} %>
         </div>
         <div class="modal-footer">
-          <%= f.submit 'Save', class: "btn btn-secondary", html: {"data-dismiss": "modal"}%>
-          <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Next</button> -->
+          <%= client.submit 'Save', class: "btn btn-secondary", html: {"data-dismiss": "modal"}%>
         </div>
       <% end %>
     </div>
