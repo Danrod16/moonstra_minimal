@@ -7,8 +7,8 @@ const selectize = () => {
     // sortField: 'text'
     //maxItems: 3
     create: function(input, callback) {
-      $(".client-modal").modal();
-      $("#client_name").val(input);
+      $(".client-modal").modal().show();
+      $("#client_company_name").val(input);
     //   $("#new_client").on("submit", function(e) {
     //     e.preventDefault();
     //     $ajax({

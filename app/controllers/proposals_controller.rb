@@ -8,11 +8,7 @@ class ProposalsController < ApplicationController
 
   def create
     @proposal = Proposal.new(proposal_params)
-    if params[:proposal][:client_id] != ""
-      @proposal.client = Client.find(params[:proposal][:client_id])
-    else
-      @proposal.client = Client.create(params[:client_attributes])
-    end
+    @proposal.client = Client.find_or_create_by(params[:proposal][:client])
     @proposal.teams_project = TeamsProject.find_by(team: @team, project_id: params[:proposal][:teams_project_id])
     if @proposal.save!
       redirect_to team_proposal_path(@team,@proposal)
