@@ -31,6 +31,7 @@
       <%= f.simple_fields_for :proposal_deliverables do |deliverable| %>
       <!-- deliverables -->
         <%= render 'proposal_deliverable_fields', :f => deliverable %>
+        <%= link_to_add_association 'add deliverable', f, :deliverables %>
       <% end %>
       <div class='links'>
         <%= link_to_add_association 'add deliverable', f, :proposal_deliverables %>
