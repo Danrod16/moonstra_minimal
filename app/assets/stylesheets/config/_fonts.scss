@@ -1,16 +1,21 @@
 // Import Google fonts
 // @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,100&display=swap');
 @font-face {
-  font-family: "Futura-heavy";
-  src: font-url('Futura-heavy.ttf');
+  font-family: "Futura";
+  src: font-url('../../Futura-heavy.ttf');
+  src: local('☺'), url('../../Futura-heavy.ttf') format('ttf'), url('/assets/Futura-heavy.ttf') format('truetype'), url('/assets/Futura-heavy.ttf');
+  font-weight: bolder;
+  font-style: normal;
 }
 @font-face {
-  font-family: "Gillroy-regular";
-  src: font-url('Gillroy-regular.ttf');
+  font-family: 'Gilroy', sans-serif;
+  src: font-url('../../Gilroy-regular.ttf');
+  src: local('☺'), url('../../Gilroy-regular.ttf') format('ttf'), url('/assets/Gilroy-regular.ttf') format('truetype'), url('/assets/Gilroy-regular.ttf');
+  font-style: normal;
 }
 // Define fonts for body and headers
-$body-font: "Gillroy-regular";
-$headers-font: "Futura-heavy";
+$body-font: 'Gilroy', sans-serif;
+$headers-font: "Futura";
 
 // To use a font file (.woff) uncomment following lines
 // $my-font: "Futura-heavy";

@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     end
   end
 
+  post '/invitation', to: 'invitations#create', as: :invitations
   resources :users do
     get 'overview', to: 'dashboards#overview_user'
   end

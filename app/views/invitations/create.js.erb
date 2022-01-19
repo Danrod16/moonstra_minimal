@@ -1,0 +1,6 @@
+
+<% if @invitation.errors.any? %>
+  alert("Oops! There was a rpoblem with your submission, wonrg email or you already submited")
+<% else %>
+  Document.querySelector("#new_invitation").hide()
+<% end %>
