@@ -1,7 +1,7 @@
 <div class="banner">
   <div class="mycontainer">
     <div class="banner-body">
-      <h1>Do you want to kickstart you freelancing career?</h1>
+      <h1>kickstart your <br>freelancing career</h1>
       <p>All in one tool for freelance collaboratives.</p>
       <!-- to uncomment when launch -->
       <%#= link_to "create a team", new_team_path, class: "btn-primary" %>
@@ -12,8 +12,8 @@
       <% else %>
       <div id="new_invitation_form">
         <%= simple_form_for @invitation, remote: true do |f| %>
-          <%= f.input :email %>
-          <%= f.submit %>
+          <%= f.input :email, label: false, placeholder: "email" %>
+          <%= f.submit "SEND",class: "lead-submit"%>
         <% end %>
       </div>
       <% end %>
