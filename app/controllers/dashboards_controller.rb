@@ -23,7 +23,9 @@ class DashboardsController < ApplicationController
   private
 
   def set_team
-
+    if params[:team_id]
+      @team = Team.find(params[:team_id])
+    end
   end
 
   def set_team_projects
