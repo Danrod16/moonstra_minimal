@@ -1,4 +1,2 @@
-<div class="deliverable-minimal">
-  <span style="flex-grow: 1;"><%= f.input :title, class: "form-field", placeholder: "Deliverable name", label: false %></span>
-  <span style="display: flex; line-height: 40px;"><%= f.input :price, class: "bg-black", placeholder: "price of the feature", label: false %>€</span>
-</div>
+  <span style="flex-grow: 1;" ><%= f.text_field :title, class: "form-field", id: "deliverable_name", placeholder: "Deliverable name", label: false %></span>
+  <span style="display: flex; line-height: 40px;"><%= f.text_field :price, class: "bg-black", placeholder: "price of the feature", label: false %>€</span>

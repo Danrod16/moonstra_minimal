@@ -28,14 +28,17 @@
      <h3 class="minimal_proposal">Goals</h3>
       <%= f.input :goals, class: "bg-black", label: false, placeholder: "Goals of the project" %>
     <h3 class="minimal_proposal">Deliverables</h3>
-      <%= f.simple_fields_for :proposal_deliverables do |deliverable| %>
+
+      <%= f.association :deliverables, collection: Deliverable.all, input_html: { class: "selectize-deliverable", multiple: true} %>
+
+      <%#= f.simple_fields_for :proposal_deliverables do |deliverable| %>
       <!-- deliverables -->
-        <%= render 'proposal_deliverable_fields', :f => deliverable %>
-        <%= link_to_add_association 'add deliverable', f, :deliverables %>
-      <% end %>
-      <div class='links'>
-        <%= link_to_add_association 'add deliverable', f, :proposal_deliverables %>
-      </div>
+        <%#= render 'proposal_deliverable_fields', :f => deliverable %>
+        <%#= link_to_add_association 'add deliverable', f, :deliverables %>
+      <%# end %>
+  <!--     <div class='links'>
+        <%#= link_to_add_association 'add deliverable', f, :proposal_deliverables %>
+      </div> -->
        <!-- End deliverables -->
        <div class="">
           <p>Total Price</p>
@@ -48,6 +51,6 @@
 <!-- cleint modal -->
 <%= render 'client_modal' %>
 <!-- end Modal -->
-
+<%= render 'deliverable_modal' %>
 
 

@@ -14,7 +14,7 @@ Rails.application.routes.draw do
       get 'declined', to: 'proposals#declined'
     end
   end
-
+  resources :deliverables, only: [:create]
   resources :clients, only: [:create]
 
   resources :projects, only: [:new, :create, :index]

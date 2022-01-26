@@ -10,7 +10,7 @@ class ProposalsController < ApplicationController
     @proposal = Proposal.new(proposal_params)
     @proposal.client = Client.find_or_create_by(params[:proposal][:client])
     @proposal.teams_project = TeamsProject.find_by(team: @team, project_id: params[:proposal][:teams_project_id])
-    if @proposal.save!
+    if @proposal.save
       redirect_to team_proposal_path(@team,@proposal)
     else
       flash[:alert] = "Error saving: try again"

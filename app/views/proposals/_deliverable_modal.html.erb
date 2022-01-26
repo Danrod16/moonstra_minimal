@@ -1,0 +1,20 @@
+<div class="modal fade deliverable-modal" tabindex="-1" role="dialog" aria-labelledby="deliverableModalTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="ModalLongTitle">Your new deliverable</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <%= form_for Deliverable.new, html: { id: :new_deliverable_form } do |deliverable| %>
+        <div class="modal-body">
+            <%= render 'deliverable_fields', :f => deliverable %>
+        </div>
+        <div class="modal-footer">
+          <%= deliverable.submit 'Save', class: "btn btn-secondary", html: {"data-dismiss": "modal"}%>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
