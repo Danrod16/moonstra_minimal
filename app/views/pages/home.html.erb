@@ -1,10 +1,23 @@
 <div class="banner">
   <div class="mycontainer">
     <div class="banner-body">
-      <h1>Tired of working alone?</h1>
-      <p>Create or join a freelancers collective today.</p>
-      <%= link_to "create a team", new_team_path, class: "btn-primary" %>
-      <%= link_to "Join your team", new_user_registration_path, class: "btn-secondary" %>
+      <h1>kickstart your <br>freelancing career</h1>
+      <p>All in one tool for freelance collaboratives.</p>
+      <!-- to uncomment when launch -->
+      <%#= link_to "create a team", new_team_path, class: "btn-primary" %>
+      <%#= link_to "Join your team", new_user_registration_path, class: "btn-secondary" %>
+      <!-- end of comment -->
+      <% if cookies[:saved_invite] %>
+        <p>Your registration is saved, we will contact you soon prior to the official launch!</p>
+      <% else %>
+      <div id="new_invitation_form">
+        <%= simple_form_for @invitation, remote: true do |f| %>
+          <%= f.input :email, label: false, placeholder: "email" %>
+          <%= f.submit "SEND",class: "lead-submit"%>
+        <% end %>
+      </div>
+      <% end %>
+
     </div>
   </div>
 </div>

@@ -1,10 +1,10 @@
 // Specific CSS for your home-page
 .banner {
-  background-color: none;
+  background-color: $white-green;
   background-size: cover;
   background-position: center;
   text-align: center;
-  padding-top: 250px;
+  padding-top: 150px;
   display: flex;
   align-self: center;
   justify-content: center;
@@ -18,9 +18,6 @@
 .banner h1 {
   margin: 0;
   color: black;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  font-size: 32px;
-  font-weight: bold;
 }
 
 .social-proof-section h2 {
@@ -29,7 +26,7 @@
 
 .banner p {
   font-size: 20px;
+  font-weight: 300;
   color: black;
-  opacity: .7;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  padding: 20px;
 }
