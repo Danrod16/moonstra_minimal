@@ -1,4 +1,4 @@
-<div class="modal fade" id="ModalCenter" tabindex="-1" role="dialog" aria-labelledby="ModalCenterTitle" aria-hidden="true">
+<div class="modal fade client-modal" tabindex="-1" role="dialog" aria-labelledby="ClientModalTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -7,16 +7,14 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
-        <%= f.association :client, collection: Client.order("Company_name"), :label_method => :company_name,  label: false, placeholder: "Select a client" %>
-        <%= f.simple_fields_for :client do |client| %>
-          <%= render 'client_fields', :f => client %>
-        <% end %>
-        <%= link_to_add_association 'add client', f, :client %>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Next</button>
-      </div>
+      <%= form_for Client.new, html: { id: :new_client_form } do |client| %>
+        <div class="modal-body">
+            <%= render 'client_fields', :f => client %>
+        </div>
+        <div class="modal-footer">
+          <%= client.submit 'Save', class: "btn btn-secondary", html: {"data-dismiss": "modal"}%>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>

@@ -15,6 +15,8 @@ Rails.application.routes.draw do
       get 'declined', to: 'proposals#declined'
     end
   end
+  resources :deliverables, only: [:create]
+  resources :clients, only: [:create]
 
   post '/invitation', to: 'invitations#create', as: :invitations
   resources :users do

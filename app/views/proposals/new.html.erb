@@ -11,29 +11,46 @@
           <strong>Expiry date:</strong><%= f.input :expiry_date, label: false, id: "expiry-date-minimal" %>
         </span>
         <%= f.association :teams_project, selected: "Project", collection: @teams_projects, class: "bg-black", label: false  %>
-      <button type="button" class="" data-toggle="modal" data-target="#ModalCenter">
-        Add customer
-      </button>
+        <%= f.association :client,
+                          collection: Client.order("company_name"),
+                          :label_method => :company_name,
+                          label: false,
+                          include_blank: false,
+                          include_hidden: false,
+                          placeholder: "Select a client",
+                          input_html: { class: "selectize", multiple: true}
+                          %>
       </div>
+
     </div>
      <h3 class="minimal_proposal">Overview</h3>
       <%= f.input :overview, class: "form-field", label: false, placeholder: "Overview of the project"  %>
      <h3 class="minimal_proposal">Goals</h3>
       <%= f.input :goals, class: "bg-black", label: false, placeholder: "Goals of the project" %>
-      <!-- Client Modal -->
-      <%= render 'client_modal', :f => f %>
-      <!-- end Modal -->
     <h3 class="minimal_proposal">Deliverables</h3>
-      <%= f.simple_fields_for :proposal_deliverables do |deliverable| %>
+
+      <%= f.association :deliverables, collection: Deliverable.all, input_html: { class: "selectize-deliverable", multiple: true} %>
+
+      <%#= f.simple_fields_for :proposal_deliverables do |deliverable| %>
       <!-- deliverables -->
-        <%= render 'proposal_deliverable_fields', :f => deliverable %>
-      <% end %>
-      <div class='links'>
-        <%= link_to_add_association 'add deliverable', f, :proposal_deliverables %>
-      </div>
+        <%#= render 'proposal_deliverable_fields', :f => deliverable %>
+        <%#= link_to_add_association 'add deliverable', f, :deliverables %>
+      <%# end %>
+  <!--     <div class='links'>
+        <%#= link_to_add_association 'add deliverable', f, :proposal_deliverables %>
+      </div> -->
        <!-- End deliverables -->
-      <%= f.input :total_price, class: "bg-black", label: false, placeholder: "total price of the project"  %>
+       <div class="">
+          <p>Total Price</p>
+          <%= f.input :total_price, class: "bg-black", label: false, placeholder: "total price of the project"  %> excl. taxes
+       </div>
       <%= f.button :submit, class: "primary-button" %>
     <% end %>
   </div>
 </div>
+<!-- cleint modal -->
+<%= render 'client_modal' %>
+<!-- end Modal -->
+<%= render 'deliverable_modal' %>
+
+
