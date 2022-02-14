@@ -32,6 +32,23 @@
   margin-top: -140px;
 }
 
+.value-wrapper {
+  display: flex;
+  padding: 75px 0px;
+  justify-content: space-between;
+}
+
+.value-body-left {
+  text-align:left;
+  max-width: 450px;
+}
+
+.value-img-round {
+  height: 70px;
+  border-radius: 100px;
+  object-fit: none;
+}
+
 .banner p {
   font-size: 20px;
   font-weight: 300;
